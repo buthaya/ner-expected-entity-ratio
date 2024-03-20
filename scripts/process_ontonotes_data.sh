@@ -1,5 +1,5 @@
 # Place the extracted ontonotes5 corpus in the ONTO_PATH path
-ONTO_PATH="./data/ontonotes5"  # change this as needed
+ONTO_PATH="data/ontonotes5"  # change this as needed
 
 for LANG in english arabic chinese
 do

@@ -413,9 +413,9 @@ dependencies:
     - tensorboardx==2.1
     - tokenizers==0.9.3
     - toml==0.10.1
-    - torch==1.7.0+cu110 -f https://download.pytorch.org/whl/torch_stable.html
+    - torch==1.7.0+cu110
     - torch-struct==0.5
-    - torchvision==0.8.1+cu110 -f https://download.pytorch.org/whl/torch_stable.html
+    - torchvision==0.8.1+cu110
     - transformers==3.5.1
     - typed-ast==1.4.1
     - typing==3.7.4.3
