@@ -5,7 +5,7 @@ for LANG in english arabic chinese
 do
     echo === Processing $LANG ===
     mkdir -p data/ontonotes5/processed/$LANG
-    python -m ml.cmd.convert_ontonotes_data data/ontonotes5/data/files/data/$LANG data/ontonotes5/processed/english/\
+    python -m ml.cmd.convert_ontonotes_data data/ontonotes5/data/files/data/$LANG data/ontonotes5/processed/$LANG/\
     --as-sentences --is-complete
 
     mkdir -p data/ontonotes5/processed_docs/$LANG
