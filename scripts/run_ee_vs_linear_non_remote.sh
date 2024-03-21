@@ -3,6 +3,7 @@
 #SBATCH --output=out_%j.txt
 #SBATCH --error=err_%j.txt
 #SBATCH --gres=gpu:1
+#SBATCH --cpus-per-task=10 
 #SBATCH --time=10:00:00
 #SBATCH -C v100-32g
 #SBATCH -A zke@v100
