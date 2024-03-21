@@ -1,5 +1,5 @@
 # Comparing Linear, exhaustive annotation to EE annotation with same budget
-
+IS_REMOTE=false
 RUN_JUPYTER=true
 RUN_TENSORBOARD=true
 LANG_LABEL=eng-c
@@ -22,6 +22,7 @@ ENTITY_RATIO_MARGIN=0.05
 # Raw linear, only docs with annotations
 # tacl-eer_eng-c_linear_raw-short
 bash scripts/run_ml_experiment.sh\
+ IS_REMOTE=$IS_REMOTE\
  RUN_JUPYTER=$RUN_JUPYTER\
  RUN_TENSORBOARD=$RUN_TENSORBOARD\
  LANG_LABEL=$LANG_LABEL\
