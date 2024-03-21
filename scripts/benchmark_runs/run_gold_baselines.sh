@@ -31,7 +31,7 @@ bash scripts/run_remote_ml_experiment.sh\
  DEV_DATA=entity.dev-docs.jsonl\
  TEST_DATA=entity.test-docs.jsonl\
  VOCAB_PATH=data/conll2003/roberta-entity.vocab\
- MODEL_NAME=roberta-base\
+ MODEL_NAME=/gpfsdswork/dataset/HuggingFace_Models/roberta-base\
  PAD_TOKEN="<pad>"\
  OOV_TOKEN="<unk>"\
  BATCH_SIZE=15\
@@ -161,7 +161,7 @@ bash scripts/run_remote_ml_experiment.sh\
  DEV_DATA=dev.jsonl\
  TEST_DATA=test.jsonl\
  VOCAB_PATH=data/ontonotes5/processed_docs/roberta-entity.vocab\
- MODEL_NAME=roberta-base\
+ MODEL_NAME=/gpfsdswork/dataset/HuggingFace_Models/roberta-base\
  PAD_TOKEN="<pad>"\
  OOV_TOKEN="<unk>"\
  BATCH_SIZE=2\

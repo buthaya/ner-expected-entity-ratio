@@ -7,7 +7,7 @@ LANG_DIR=data/conll2003/eng
 DEV_DATA=entity.dev-docs.jsonl
 TEST_DATA=entity.test-docs.jsonl
 VOCAB_PATH=data/conll2003/roberta-entity.vocab
-MODEL_NAME=roberta-base
+MODEL_NAME=/gpfsdswork/dataset/HuggingFace_Models/roberta-base
 PAD_TOKEN="<pad>"
 OOV_TOKEN="<unk>"
 

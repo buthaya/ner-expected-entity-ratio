@@ -20,7 +20,7 @@ do
     if [ $LANG = 'eng' ]
     then
         export VOCAB_PATH=data/conll2003/roberta-entity.vocab
-        export MODEL_NAME=roberta-base
+        export MODEL_NAME=/gpfsdswork/dataset/HuggingFace_Models/roberta-base
         export PAD_TOKEN="<pad>"
         export OOV_TOKEN="<unk>"
     else
@@ -54,7 +54,7 @@ do
     if [ $LANG = 'english' ]
     then
         export VOCAB_PATH=data/ontonotes5/processed/roberta-entity.vocab
-        export MODEL_NAME=roberta-base
+        export MODEL_NAME=/gpfsdswork/dataset/HuggingFace_Models/roberta-base
         export PAD_TOKEN="<pad>"
         export OOV_TOKEN="<unk>"
     else
