@@ -38,7 +38,7 @@ do
 done
 
 # Navigate to dir
-cd /home/ubuntu/ner-expected-entity-ratio
+cd $WORK/ner-expected-entity-ratio
 which python
 
 # Setup
@@ -110,30 +110,30 @@ if $IS_REMOTE
 then
   echo Downloading Data
   mkdir -p $VOCAB_PATH
-  scp -i /home/ubuntu/aws-ec2-mcollins.pem ubuntu@$MAIN_IP:~/ner-expected-entity-ratio/$TRAIN_DATA_PATH $TRAIN_DATA_PATH
-  scp -i /home/ubuntu/aws-ec2-mcollins.pem ubuntu@$MAIN_IP:~/ner-expected-entity-ratio/$DEV_DATA_PATH $DEV_DATA_PATH
-  scp -i /home/ubuntu/aws-ec2-mcollins.pem ubuntu@$MAIN_IP:~/ner-expected-entity-ratio/$TEST_DATA_PATH $TEST_DATA_PATH
-  scp -r -i /home/ubuntu/aws-ec2-mcollins.pem ubuntu@$MAIN_IP:~/ner-expected-entity-ratio/$VOCAB_PATH/* $VOCAB_PATH/
+  scp -i $WORK/aws-ec2-mcollins.pem ubuntu@$MAIN_IP:~/ner-expected-entity-ratio/$TRAIN_DATA_PATH $TRAIN_DATA_PATH
+  scp -i $WORK/aws-ec2-mcollins.pem ubuntu@$MAIN_IP:~/ner-expected-entity-ratio/$DEV_DATA_PATH $DEV_DATA_PATH
+  scp -i $WORK/aws-ec2-mcollins.pem ubuntu@$MAIN_IP:~/ner-expected-entity-ratio/$TEST_DATA_PATH $TEST_DATA_PATH
+  scp -r -i $WORK/aws-ec2-mcollins.pem ubuntu@$MAIN_IP:~/ner-expected-entity-ratio/$VOCAB_PATH/* $VOCAB_PATH/
 fi
 
 # Run a jupyter server so we can check in on things, copying our password config
 if $RUN_JUPYTER
 then
   echo Running Jupyter
-  scp -i /home/ubuntu/aws-ec2-mcollins.pem ubuntu@$MAIN_IP:/home/ubuntu/.jupyter/jupyter_notebook_config.json /home/ubuntu/.jupyter/jupyter_notebook_config.json
-  /home/ubuntu/anaconda3/envs/env/bin/jupyter notebook --ip 0.0.0.0 --no-browser &> logs/jupyter.log &
+  scp -i $WORK/aws-ec2-mcollins.pem ubuntu@$MAIN_IP:$WORK/.jupyter/jupyter_notebook_config.json $WORK/.jupyter/jupyter_notebook_config.json
+  $WORK/anaconda3/envs/env/bin/jupyter notebook --ip 0.0.0.0 --no-browser &> logs/jupyter.log &
 fi
 
 # Run a tensorboard instance watching the experiment dir
 if $RUN_TENSORBOARD
 then
   echo Running Tensorboard
-  /home/ubuntu/anaconda3/envs/env/bin/tensorboard --host 0.0.0.0 --logdir $EXPERIMENT_DIR &> logs/tensorboard.log &
+  $WORK/anaconda3/envs/env/bin/tensorboard --host 0.0.0.0 --logdir $EXPERIMENT_DIR &> logs/tensorboard.log &
 fi
 
 # Run the experiment
 echo Running Experiment, check at logs/train_${LANG_LABEL}_${DATASET_LABEL}_${METHOD_LABEL}.out
-/home/ubuntu/anaconda3/envs/env/bin/allennlp train $BASE_CONFIG\
+$WORK/anaconda3/envs/env/bin/allennlp train $BASE_CONFIG\
   -f -s $SERIALIZATION_DIR\
   --include ml\
   --file-friendly-logging\
@@ -145,6 +145,6 @@ echo Uploading final results bach to $SERIALIZATION_DIR
 if $IS_REMOTE
 then
   # Then send the results back to the main node
-  scp -i /home/ubuntu/aws-ec2-mcollins.pem logs/train_${LANG_LABEL}_${DATASET_LABEL}_${METHOD_LABEL}.out ubuntu@$MAIN_IP:~/ner-expected-entity-ratio/logs/train_remote_${LANG_LABEL}_${DATASET_LABEL}_${METHOD_LABEL}.out
-  scp -r -i /home/ubuntu/aws-ec2-mcollins.pem $SERIALIZATION_DIR ubuntu@$MAIN_IP:~/ner-expected-entity-ratio/$SERIALIZATION_DIR
+  scp -i $WORK/aws-ec2-mcollins.pem logs/train_${LANG_LABEL}_${DATASET_LABEL}_${METHOD_LABEL}.out ubuntu@$MAIN_IP:~/ner-expected-entity-ratio/logs/train_remote_${LANG_LABEL}_${DATASET_LABEL}_${METHOD_LABEL}.out
+  scp -r -i $WORK/aws-ec2-mcollins.pem $SERIALIZATION_DIR ubuntu@$MAIN_IP:~/ner-expected-entity-ratio/$SERIALIZATION_DIR
 fi
