@@ -138,7 +138,7 @@ $WORK/ner-expected-entity-ratio/ner-eer/bin/allennlp train $BASE_CONFIG\
   --include ml\
   --file-friendly-logging\
   &> logs/train_${LANG_LABEL}_${DATASET_LABEL}_${METHOD_LABEL}.out
-
+cat logs/train_${LANG_LABEL}_${DATASET_LABEL}_${METHOD_LABEL}.out
 echo Experiment finished. 
 echo Uploading train logs to logs/train_remote_${LANG_LABEL}_${DATASET_LABEL}_${METHOD_LABEL}.out
 echo Uploading final results bach to $SERIALIZATION_DIR
