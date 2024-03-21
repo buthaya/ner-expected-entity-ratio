@@ -1,3 +1,12 @@
+#!/bin/bash
+#SBATCH --job-name=run_ee_vs_linear_non_remote.sh
+#SBATCH --output=out_%j.txt
+#SBATCH --error=err_%j.txt
+#SBATCH --gres=gpu:1
+#SBATCH --time=10:00:00
+#SBATCH -C v100-32g
+#SBATCH -A zke@v100
+
 # Comparing Linear, exhaustive annotation to EE annotation with same budget
 IS_REMOTE=false
 RUN_JUPYTER=false
