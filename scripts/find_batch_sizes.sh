@@ -35,7 +35,7 @@ do
     LOG=logs/find_batch_size_conll2003-$LANG.log
     echo RUNNING CONLL LANG: $LANG
     echo Check the log at: $LOG
-    $WORK/anaconda3/envs/env/bin/allennlp train $BASE_CONFIG\
+    $WORK/ner-expected-entity-ratio/ner-eer/bin/allennlp train $BASE_CONFIG\
         -f -s $SERIALIZATION_DIR\
         -o '{"data_loader": {"batch_sampler": {"type":"find_bucket_max_batch_size"}}}'\
         --include ml\
@@ -69,7 +69,7 @@ do
     LOG=logs/find_batch_size_ontonotes5-$LANG.log
     echo RUNNING ONTO LANG: $LANG
     echo Check the log at: $LOG
-    $WORK/anaconda3/envs/env/bin/allennlp train $BASE_CONFIG\
+    $WORK/ner-expected-entity-ratio/ner-eer/bin/allennlp train $BASE_CONFIG\
         -f -s $SERIALIZATION_DIR\
         -o '{"data_loader": {"batch_sampler": {"type":"find_bucket_max_batch_size"}}}'\
         --include ml\

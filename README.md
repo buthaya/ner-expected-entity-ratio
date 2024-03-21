@@ -6,7 +6,8 @@ Implementation and experiments for "[Partially Supervised Named Entity Recogniti
 Experiments were all run on a p3.2xlarge instance on AWS with the amazon deep learning AMI on ubuntu 18 using python 3.7.
 (You'll need at least 16GB of GPU ram to run these experiments as is.)
 
-Install the required environment with: `conda env create -f environment.yml`
+<!-- Install the required environment with: `conda env create -f environment.yml` -->
+Install the required environment with: `conda env create -p ner-eer -f environment.yml`
 
 Then activate with: `conda activate env`
 
