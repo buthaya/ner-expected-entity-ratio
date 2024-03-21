@@ -1,7 +1,7 @@
 # Comparing Linear, exhaustive annotation to EE annotation with same budget
 IS_REMOTE=false
-RUN_JUPYTER=true
-RUN_TENSORBOARD=true
+RUN_JUPYTER=false
+RUN_TENSORBOARD=false
 LANG_LABEL=eng-c
 LANG_DIR=data/conll2003/eng
 DEV_DATA=entity.dev-docs.jsonl
