@@ -1,4 +1,4 @@
-# ner-expected-entity-ratio
+# ner-expected-entity-ratio (Personal modifications made to run the code on [Jean-Zay](http://www.idris.fr/eng/jean-zay/cpu/jean-zay-cpu-hw-eng.html))
 Implementation and experiments for "[Partially Supervised Named Entity Recognition via the Expected Entity Ratio Loss](https://arxiv.org/abs/2108.07216)" to appear in TACL 2021.
 
 ## Installation
