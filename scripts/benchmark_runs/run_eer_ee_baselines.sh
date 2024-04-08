@@ -8,6 +8,9 @@
 #SBATCH -C v100-32g
 #SBATCH -A zke@v100
 
+module load python
+conda activate ner-eer/
+
 # Benchmark Experiment: Raw MLE approach on non-native speaker (nns) datasets
 RUN_JUPYTER=false
 RUN_TENSORBOARD=false
