@@ -116,6 +116,7 @@ class PartialSupervisedTagger(Model):
         constrain_test_crf_decoding: bool = True,
         initializer: InitializerApplicator = InitializerApplicator(),
         # Losses
+        prior_loss_type: str = "",
         prior_loss_weight: float = 1.0,
         entity_ratio: float = 0.2,
         entity_ratio_margin: float = 0.05,
