@@ -1,6 +1,16 @@
+#!/bin/bash
+#SBATCH --job-name=run_bcl-bert_ee_baselines.sh
+#SBATCH --output=out_bcl-bert_ee_baselines.txt
+#SBATCH --error=err_bcl-bert_ee_baselines%j.txt
+#SBATCH --gres=gpu:1
+#SBATCH --cpus-per-task=10 
+#SBATCH --time=10:00:00
+#SBATCH -C v100-32g
+#SBATCH -A zke@v100
+
 # Benchmark Experiment: Raw MLE approach on non-native speaker (nns) datasets
-RUN_JUPYTER=true
-RUN_TENSORBOARD=true
+RUN_JUPYTER=false
+RUN_TENSORBOARD=false
 DATASET_LABEL=ee
 METHOD_LABEL=eer-sent
 TRAIN_SUFFIX=_P-1000
@@ -9,7 +19,6 @@ RANDOM_SEED=0
 DROPOUT=0.2
 LR=2e-5
 NUM_EPOCHS=20
-PRIOR_TYPE="eer-exact"
 PRIOR_WEIGHT=10.0
 ENTITY_RATIO=0.15
 ENTITY_RATIO_MARGIN=0.05
@@ -18,8 +27,7 @@ ENTITY_RATIO_MARGIN=0.05
 # Conll english
 # tacl-eer_eng-c_ee_eer-sent
 bash scripts/run_remote_ml_experiment.sh\
- PUBLIC_IP=3.231.207.171\
- PRIVATE_IP=172.31.9.130\
+ IS_REMOTE=false\
  RUN_JUPYTER=$RUN_JUPYTER\
  RUN_TENSORBOARD=$RUN_TENSORBOARD\
  LANG_LABEL=eng-c\
@@ -41,7 +49,6 @@ bash scripts/run_remote_ml_experiment.sh\
  DROPOUT=$DROPOUT\
  LR=$LR\
  NUM_EPOCHS=$NUM_EPOCHS\
- PRIOR_TYPE=$PRIOR_TYPE\
  PRIOR_WEIGHT=$PRIOR_WEIGHT\
  ENTITY_RATIO=$ENTITY_RATIO\
  ENTITY_RATIO_MARGIN=$ENTITY_RATIO_MARGIN
@@ -74,7 +81,6 @@ bash scripts/run_remote_ml_experiment.sh\
 #  DROPOUT=$DROPOUT\
 #  LR=$LR\
 #  NUM_EPOCHS=$NUM_EPOCHS\
-#  PRIOR_TYPE=$PRIOR_TYPE\
 #  PRIOR_WEIGHT=$PRIOR_WEIGHT\
 #  ENTITY_RATIO=$ENTITY_RATIO\
 #  ENTITY_RATIO_MARGIN=$ENTITY_RATIO_MARGIN
@@ -107,7 +113,6 @@ bash scripts/run_remote_ml_experiment.sh\
 #  DROPOUT=$DROPOUT\
 #  LR=$LR\
 #  NUM_EPOCHS=$NUM_EPOCHS\
-#  PRIOR_TYPE=$PRIOR_TYPE\
 #  PRIOR_WEIGHT=$PRIOR_WEIGHT\
 #  ENTITY_RATIO=$ENTITY_RATIO\
 #  ENTITY_RATIO_MARGIN=$ENTITY_RATIO_MARGIN
@@ -139,7 +144,6 @@ bash scripts/run_remote_ml_experiment.sh\
 #  DROPOUT=$DROPOUT\
 #  LR=$LR\
 #  NUM_EPOCHS=$NUM_EPOCHS\
-#  PRIOR_TYPE=$PRIOR_TYPE\
 #  PRIOR_WEIGHT=$PRIOR_WEIGHT\
 #  ENTITY_RATIO=$ENTITY_RATIO\
 #  ENTITY_RATIO_MARGIN=$ENTITY_RATIO_MARGIN
@@ -171,7 +175,6 @@ bash scripts/run_remote_ml_experiment.sh\
 #  DROPOUT=$DROPOUT\
 #  LR=$LR\
 #  NUM_EPOCHS=$NUM_EPOCHS\
-#  PRIOR_TYPE=$PRIOR_TYPE\
 #  PRIOR_WEIGHT=$PRIOR_WEIGHT\
 #  ENTITY_RATIO=$ENTITY_RATIO\
 #  ENTITY_RATIO_MARGIN=$ENTITY_RATIO_MARGIN
@@ -203,7 +206,6 @@ bash scripts/run_remote_ml_experiment.sh\
 #  DROPOUT=$DROPOUT\
 #  LR=$LR\
 #  NUM_EPOCHS=$NUM_EPOCHS\
-#  PRIOR_TYPE=$PRIOR_TYPE\
 #  PRIOR_WEIGHT=$PRIOR_WEIGHT\
 #  ENTITY_RATIO=$ENTITY_RATIO\
 #  ENTITY_RATIO_MARGIN=$ENTITY_RATIO_MARGIN
@@ -235,7 +237,6 @@ bash scripts/run_remote_ml_experiment.sh\
 #  DROPOUT=$DROPOUT\
 #  LR=$LR\
 #  NUM_EPOCHS=$NUM_EPOCHS\
-#  PRIOR_TYPE=$PRIOR_TYPE\
 #  PRIOR_WEIGHT=$PRIOR_WEIGHT\
 #  ENTITY_RATIO=$ENTITY_RATIO\
 #  ENTITY_RATIO_MARGIN=$ENTITY_RATIO_MARGIN

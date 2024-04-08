@@ -38,7 +38,7 @@ bash scripts/run_ml_experiment.sh\
  LANG_LABEL=$LANG_LABEL\
  DATASET_LABEL=linear\
  METHOD_LABEL=raw-short\
- BASE_CONFIG=experiments/supervised_tagger_short.jsonnet\
+ BASE_CONFIG=experiments/supervised_tagger.jsonnet\
  ASSUME_COMPLETE="true"\
  LANG_DIR=$LANG_DIR\
  TRAIN_DATA=entity.train-docs_P-1000_linear.jsonl\
@@ -54,7 +54,6 @@ bash scripts/run_ml_experiment.sh\
  DROPOUT=$DROPOUT\
  LR=$LR\
  NUM_EPOCHS=50\
- PRIOR_TYPE=null\
  PRIOR_WEIGHT=0.0\
  ENTITY_RATIO=$ENTITY_RATIO\
  ENTITY_RATIO_MARGIN=$ENTITY_RATIO_MARGIN
@@ -86,7 +85,6 @@ bash scripts/run_ml_experiment.sh\
 #  DROPOUT=$DROPOUT\
 #  LR=$LR\
 #  NUM_EPOCHS=30\
-#  PRIOR_TYPE="eer-exact"\
 #  PRIOR_WEIGHT=10.0\
 #  ENTITY_RATIO=$ENTITY_RATIO\
 #  ENTITY_RATIO_MARGIN=$ENTITY_RATIO_MARGIN
