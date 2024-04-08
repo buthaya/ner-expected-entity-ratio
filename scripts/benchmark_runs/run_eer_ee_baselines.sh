@@ -27,7 +27,7 @@ ENTITY_RATIO_MARGIN=0.05
 
 # # Conll english
 # # tacl-eer_eng-c_ee_eer
-bash scripts/run_remote_ml_experiment.sh\
+bash scripts/run_ml_experiment.sh\
  IS_REMOTE=false\
  RUN_JUPYTER=$RUN_JUPYTER\
  RUN_TENSORBOARD=$RUN_TENSORBOARD\
