@@ -14,7 +14,16 @@ RUN_TENSORBOARD=false
 DATASET_LABEL=ee
 METHOD_LABEL=bcl-bert
 TRAIN_SUFFIX=_P-1000
-
+MODEL_NAME='bert-bcl-ee'
+PAD_TOKEN="<pad>"
+OOV_TOKEN="<unk>"
+BATCH_SIZE=15
+RANDOM_SEED=0
+DROPOUT=0.2
+LR=2e-5
+ENTITY_RATIO=0.15
+ENTITY_RATIO_MARGIN=0.05
+NUM_EPOCHS=50
 
 # # Conll english
 # tacl-eer_eng-c_ee_bcl-bert
@@ -31,8 +40,22 @@ bash scripts/run_ml_experiment.sh\
  TEST_DATA=entity.test-docs.jsonl\
  VOCAB_PATH=data/conll2003/mayhew-entity.vocab\
  BINARY_VOCAB_PATH=data/conll2003/mayhew-binary-entity.vocab\
- VECTORS_PATH=data/vectors/glove.6B.50d.txt
-
+ VECTORS_PATH=data/vectors/glove.6B.50d.txt\
+ BASE_CONFIG=experiments/supervised_tagger.jsonnet\
+ ASSUME_COMPLETE="true"\
+ MODEL_NAME=$MODEL_NAME\
+ PAD_TOKEN=$PAD_TOKEN\
+ OOV_TOKEN=$OOV_TOKEN\
+ BATCH_SIZE=$BATCH_SIZE\
+ VALIDATION_BATCH_SIZE=$BATCH_SIZE\
+ RANDOM_SEED=$RANDOM_SEED\
+ DROPOUT=$DROPOUT\
+ LR=$LR\
+ NUM_EPOCHS=$NUM_EPOCHS\
+ PRIOR_TYPE=null\
+ PRIOR_WEIGHT=0.0\
+ ENTITY_RATIO=$ENTITY_RATIO\
+ ENTITY_RATIO_MARGIN=$ENTITY_RATIO_MARGIN
 
 # # Conll german
 # # tacl-eer_deu_ee_bcl-bert

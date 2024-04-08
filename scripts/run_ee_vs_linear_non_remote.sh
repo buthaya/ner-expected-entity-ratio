@@ -38,7 +38,7 @@ bash scripts/run_ml_experiment.sh\
  LANG_LABEL=$LANG_LABEL\
  DATASET_LABEL=linear\
  METHOD_LABEL=raw-short\
- BASE_CONFIG=experiments/supervised_tagger_short.jsonnet\
+ BASE_CONFIG=experiments/supervised_tagger.jsonnet\
  ASSUME_COMPLETE="true"\
  LANG_DIR=$LANG_DIR\
  TRAIN_DATA=entity.train-docs_P-1000_linear.jsonl\
