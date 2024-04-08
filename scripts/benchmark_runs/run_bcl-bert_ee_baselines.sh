@@ -9,6 +9,7 @@ TRAIN_SUFFIX=_P-1000
 # # Conll english
 # tacl-eer_eng-c_ee_bcl-bert
 bash scripts/run_ml_experiment.sh\
+ IS_REMOTE=false\
  LANG_LABEL=eng-c\
  DATASET_LABEL=$DATASET_LABEL\
  METHOD_LABEL=$METHOD_LABEL\
