@@ -1,6 +1,6 @@
 # Benchmark Experiment: BCL-BERT on EE doc data (the adapted Mayhew 19 code)
-RUN_JUPYTER=true
-RUN_TENSORBOARD=true
+RUN_JUPYTER=false
+RUN_TENSORBOARD=false
 DATASET_LABEL=ee
 METHOD_LABEL=bcl-bert
 TRAIN_SUFFIX=_P-1000
@@ -10,6 +10,8 @@ TRAIN_SUFFIX=_P-1000
 # tacl-eer_eng-c_ee_bcl-bert
 bash scripts/run_ml_experiment.sh\
  IS_REMOTE=false\
+ RUN_JUPYTER=$RUN_JUPYTER\
+ RUN_TENSORBOARD=$RUN_TENSORBOARD\
  LANG_LABEL=eng-c\
  DATASET_LABEL=$DATASET_LABEL\
  METHOD_LABEL=$METHOD_LABEL\
@@ -24,7 +26,7 @@ bash scripts/run_ml_experiment.sh\
 
 # # Conll german
 # # tacl-eer_deu_ee_bcl-bert
-# bash scripts/run_remote_mayhew19_experiment.sh\
+bash scripts/run_remote_mayhew19_experiment.sh\
 #  PUBLIC_IP=3.235.101.13\
 #  PRIVATE_IP=172.31.3.32\
 #  RUN_JUPYTER=$RUN_JUPYTER\
