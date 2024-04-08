@@ -23,6 +23,7 @@ local random_seed = std.parseJson(std.extVar('RANDOM_SEED'));
 local dropout = std.parseJson(std.extVar('DROPOUT'));
 local lr = std.parseJson(std.extVar('LR'));
 local num_epochs = std.parseJson(std.extVar('NUM_EPOCHS'));
+# local prior_loss_type = std.extVar('PRIOR_TYPE');
 local prior_weight = std.parseJson(std.extVar('PRIOR_WEIGHT'));
 local entity_ratio = std.parseJson(std.extVar('ENTITY_RATIO'));
 local entity_ratio_margin = std.parseJson(std.extVar('ENTITY_RATIO_MARGIN'));
@@ -91,6 +92,7 @@ local batches_per_epoch = (
       }
     },
     dropout: dropout,
+#    prior_loss_type: prior_loss_type,
     prior_loss_weight: prior_weight,
     entity_ratio: entity_ratio,
     entity_ratio_margin: entity_ratio_margin,
