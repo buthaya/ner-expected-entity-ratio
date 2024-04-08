@@ -1,3 +1,13 @@
+#!/bin/bash
+#SBATCH --job-name=run_bcl-bert_ee_baselines.sh
+#SBATCH --output=out_bcl-bert_ee_baselines.txt
+#SBATCH --error=err_bcl-bert_ee_baselines%j.txt
+#SBATCH --gres=gpu:1
+#SBATCH --cpus-per-task=10 
+#SBATCH --time=10:00:00
+#SBATCH -C v100-32g
+#SBATCH -A zke@v100
+
 # Benchmark Experiment: BCL-BERT on EE doc data (the adapted Mayhew 19 code)
 RUN_JUPYTER=false
 RUN_TENSORBOARD=false
