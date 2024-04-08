@@ -92,7 +92,6 @@ local batches_per_epoch = (
       }
     },
     dropout: dropout,
-#    prior_loss_type: prior_loss_type,
     prior_loss_weight: prior_weight,
     entity_ratio: entity_ratio,
     entity_ratio_margin: entity_ratio_margin,
