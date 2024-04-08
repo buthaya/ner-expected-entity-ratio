@@ -12,7 +12,6 @@ RANDOM_SEED=0
 DROPOUT=0.2
 LR=2e-5
 NUM_EPOCHS=50 # run longer because so few docs
-PRIOR_TYPE=null
 PRIOR_WEIGHT=10.0
 
 
