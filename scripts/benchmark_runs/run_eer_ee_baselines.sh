@@ -1,3 +1,16 @@
+#!/bin/bash
+#SBATCH --job-name=EE_RAW_BERT_
+#SBATCH --output=out_EE_RAW_BERT.txt
+#SBATCH --error=err_EE_RAW_BERT.txt
+#SBATCH --gres=gpu:2
+#SBATCH --cpus-per-task=10 
+#SBATCH --time=10:00:00
+#SBATCH -C v100-32g
+#SBATCH -A zke@v100
+
+module load python
+conda activate ner-eer
+
 # Benchmark Experiment: Raw MLE approach on non-native speaker (nns) datasets
 IS_REMOTE=false
 RUN_JUPYTER=false
@@ -10,7 +23,6 @@ RANDOM_SEED=0
 DROPOUT=0.2
 LR=2e-5
 NUM_EPOCHS=20
-PRIOR_TYPE="eer-exact"
 PRIOR_WEIGHT=10.0
 ENTITY_RATIO=0.15
 ENTITY_RATIO_MARGIN=0.05
