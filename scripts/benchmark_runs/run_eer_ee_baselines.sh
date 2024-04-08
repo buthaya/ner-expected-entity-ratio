@@ -1,7 +1,7 @@
 #!/bin/bash
-#SBATCH --job-name=EE_RAW_BERT_
-#SBATCH --output=out_EE_RAW_BERT.txt
-#SBATCH --error=err_EE_RAW_BERT.txt
+#SBATCH --job-name=eer_ee_baselines
+#SBATCH --output=out_eer_ee_baselines.txt
+#SBATCH --error=err_eer_ee_baselines.txt
 #SBATCH --gres=gpu:2
 #SBATCH --cpus-per-task=10 
 #SBATCH --time=10:00:00
