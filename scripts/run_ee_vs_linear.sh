@@ -77,7 +77,7 @@ bash scripts/run_remote_ml_experiment.sh\
 #  DROPOUT=$DROPOUT\
 #  LR=$LR\
 #  NUM_EPOCHS=30\
-#  PRIOR_TYPE="eer-exact"\
+#  PRIOR_TYPE=null\
 #  PRIOR_WEIGHT=10.0\
 #  ENTITY_RATIO=$ENTITY_RATIO\
 #  ENTITY_RATIO_MARGIN=$ENTITY_RATIO_MARGIN
