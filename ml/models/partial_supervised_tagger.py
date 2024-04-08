@@ -23,7 +23,7 @@ from allennlp.training.metrics import (
     SpanBasedF1Measure,
     Average,
 )
-from ml.util.grammatical_transitions import allowed_transitions
+from ml.util.grammatical_transitions import allowed_transitions # Convert Tagging scheme into Allowed CRF transitions
 from torch_struct import LinearChainCRF
 
 INF = 1e6
@@ -116,8 +116,7 @@ class PartialSupervisedTagger(Model):
         constrain_test_crf_decoding: bool = True,
         initializer: InitializerApplicator = InitializerApplicator(),
         # Losses
-        prior_loss_type: str = "",
-        prior_loss_weight: float = 1.0,
+        prior_loss_weight: float = 1.0, # lambda parameter 
         entity_ratio: float = 0.2,
         entity_ratio_margin: float = 0.05,
         regularizer: Optional[RegularizerApplicator] = None,
