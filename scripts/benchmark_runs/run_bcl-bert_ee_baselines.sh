@@ -7,22 +7,18 @@ TRAIN_SUFFIX=_P-1000
 
 
 # # Conll english
-# # tacl-eer_eng-c_ee_bcl-bert
-# bash scripts/run_remote_mayhew19_experiment.sh\
-#  PUBLIC_IP=3.237.86.47\
-#  PRIVATE_IP=172.31.2.36\
-#  RUN_JUPYTER=$RUN_JUPYTER\
-#  RUN_TENSORBOARD=$RUN_TENSORBOARD\
-#  LANG_LABEL=eng-c\
-#  DATASET_LABEL=$DATASET_LABEL\
-#  METHOD_LABEL=$METHOD_LABEL\
-#  LANG_DIR=data/conll2003/eng\
-#  TRAIN_DATA=entity.train-docs$TRAIN_SUFFIX.jsonl\
-#  DEV_DATA=entity.dev-docs.jsonl\
-#  TEST_DATA=entity.test-docs.jsonl\
-#  VOCAB_PATH=data/conll2003/mayhew-entity.vocab\
-#  BINARY_VOCAB_PATH=data/conll2003/mayhew-binary-entity.vocab\
-#  VECTORS_PATH=data/vectors/glove.6B.50d.txt
+# tacl-eer_eng-c_ee_bcl-bert
+bash scripts/run_ml_experiment.sh\
+ LANG_LABEL=eng-c\
+ DATASET_LABEL=$DATASET_LABEL\
+ METHOD_LABEL=$METHOD_LABEL\
+ LANG_DIR=data/conll2003/eng\
+ TRAIN_DATA=entity.train-docs$TRAIN_SUFFIX.jsonl\
+ DEV_DATA=entity.dev-docs.jsonl\
+ TEST_DATA=entity.test-docs.jsonl\
+ VOCAB_PATH=data/conll2003/mayhew-entity.vocab\
+ BINARY_VOCAB_PATH=data/conll2003/mayhew-binary-entity.vocab\
+ VECTORS_PATH=data/vectors/glove.6B.50d.txt
 
 
 # # Conll german
