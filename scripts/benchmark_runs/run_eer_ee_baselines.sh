@@ -1,5 +1,5 @@
 # Benchmark Experiment: Raw MLE approach on non-native speaker (nns) datasets
-IS_REMOTE=true
+IS_REMOTE=false
 RUN_JUPYTER=false
 RUN_TENSORBOARD=false
 DATASET_LABEL=ee
