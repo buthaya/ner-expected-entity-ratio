@@ -156,7 +156,7 @@ class PartialSupervisedTagger(Model):
 
         initializer(self)
 
-        self.prior_loss_type = None
+        self.prior_loss_type = prior_loss_type
         self.prior_loss_weight = prior_loss_weight
         self.entity_ratio = entity_ratio
         self.entity_ratio_margin = entity_ratio_margin
