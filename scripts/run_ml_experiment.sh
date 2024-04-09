@@ -135,12 +135,12 @@ fi
 
 # Run the experiment
 echo Running Experiment, check at logs/train_${LANG_LABEL}_${DATASET_LABEL}_${METHOD_LABEL}.out
-$WORK/ner-expected-entity-ratio/ner-eer/bin/allennlp train $BASE_CONFIG\
+$SCRATCH/ner-expected-entity-ratio/ner-eer/bin/allennlp train $BASE_CONFIG\
   -f -s $SERIALIZATION_DIR\
   --include ml\
   --file-friendly-logging\
   &> logs/train_${LANG_LABEL}_${DATASET_LABEL}_${METHOD_LABEL}.out
-cat logs/train_${LANG_LABEL}_${DATASET_LABEL}_${METHOD_LABEL}.out
+tail logs/train_${LANG_LABEL}_${DATASET_LABEL}_${METHOD_LABEL}.out -n 50
 echo Experiment finished. 
 echo Uploading train logs to logs/train_remote_${LANG_LABEL}_${DATASET_LABEL}_${METHOD_LABEL}.out
 echo Uploading final results bach to $SERIALIZATION_DIR
