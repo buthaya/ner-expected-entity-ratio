@@ -117,6 +117,7 @@ class PartialSupervisedTagger(Model):
         initializer: InitializerApplicator = InitializerApplicator(),
         # Losses
         prior_loss_weight: float = 1.0, # lambda parameter 
+        prior_type: str = None,
         entity_ratio: float = 0.2,
         entity_ratio_margin: float = 0.05,
         regularizer: Optional[RegularizerApplicator] = None,
@@ -155,6 +156,7 @@ class PartialSupervisedTagger(Model):
 
         initializer(self)
 
+        self.prior_type = None
         self.prior_loss_weight = prior_loss_weight
         self.entity_ratio = entity_ratio
         self.entity_ratio_margin = entity_ratio_margin
