@@ -130,7 +130,7 @@ fi
 
 # Run the experiment
 echo Running Experiment, check at logs/train_${LANG_LABEL}_${DATASET_LABEL}_${METHOD_LABEL}.out
-$SCRATCH/ner-expected-entity-ratio/ner-eer/bin/allennlp train $BASE_CONFIG\
+ner-eer/bin/allennlp train $BASE_CONFIG\
   -f -s $SERIALIZATION_DIR\
   --include ml\
   --file-friendly-logging\
