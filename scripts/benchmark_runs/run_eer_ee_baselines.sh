@@ -34,7 +34,7 @@ bash scripts/run_ml_experiment.sh\
  LANG_LABEL=eng-c\
  DATASET_LABEL=ee\
  METHOD_LABEL=eer\
- BASE_CONFIG=experiments/supervised_tagger.jsonnet\
+ BASE_CONFIG=experiments/supervised_tagger_short.jsonnet\
  ASSUME_COMPLETE="false"\
  LANG_DIR=data/conll2003/eng\
  TRAIN_DATA=entity.train-docs$TRAIN_SUFFIX.jsonl\
