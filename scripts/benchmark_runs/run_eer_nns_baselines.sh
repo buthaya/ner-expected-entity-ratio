@@ -1,7 +1,7 @@
 #!/bin/bash
-#SBATCH --job-name=eer_ee_baselines
-#SBATCH --output=out_eer_ee_baselines.txt
-#SBATCH --error=err_eer_ee_baselines.txt
+#SBATCH --job-name=eer_nns_baselines
+#SBATCH --output=out_eer_nns_baselines.txt
+#SBATCH --error=err_eer_nns_baselines.txt
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=10 
 #SBATCH --time=10:00:00
