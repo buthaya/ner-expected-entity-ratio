@@ -101,13 +101,6 @@ export PRIOR_WEIGHT=$PRIOR_WEIGHT
 export ENTITY_RATIO=$ENTITY_RATIO
 export ENTITY_RATIO_MARGIN=$ENTITY_RATIO_MARGIN
 
-# Navigate to dir
-module load python
-cd $SCRATCH/ner-expected-entity-ratio/
-conda activate ner-eer/
-which python 
-which pip
-pwd
 
 # Download all needed data from main node
 if $IS_REMOTE

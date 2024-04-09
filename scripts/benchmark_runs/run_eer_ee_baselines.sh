@@ -8,8 +8,13 @@
 #SBATCH -C v100-32g
 #SBATCH -A zke@v100
 
+# Navigate to dir
+cd $SCRATCH/ner-expected-entity-ratio/
 module load python
-conda activate ner-eer
+conda activate ner-eer/
+which python 
+which pip
+pwd
 
 # Benchmark Experiment: Raw MLE approach on non-native speaker (nns) datasets
 IS_REMOTE=false
