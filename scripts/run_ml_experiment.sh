@@ -105,7 +105,7 @@ export PRIOR_WEIGHT=$PRIOR_WEIGHT
 export ENTITY_RATIO=$ENTITY_RATIO
 export ENTITY_RATIO_MARGIN=$ENTITY_RATIO_MARGIN
 
-set | grep '^[A-Z].*='
+pwd
 
 # Download all needed data from main node
 if $IS_REMOTE
