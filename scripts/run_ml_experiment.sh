@@ -37,10 +37,6 @@ do
     esac    
 done
 
-# Navigate to dir
-cd $WORK/ner-expected-entity-ratio
-which python
-
 # Setup
 if $IS_REMOTE
 then
@@ -105,10 +101,10 @@ export PRIOR_WEIGHT=$PRIOR_WEIGHT
 export ENTITY_RATIO=$ENTITY_RATIO
 export ENTITY_RATIO_MARGIN=$ENTITY_RATIO_MARGIN
 
+# Navigate to dir
 module load python
 cd $SCRATCH/ner-expected-entity-ratio/
 conda activate ner-eer
-
 pwd
 
 # Download all needed data from main node

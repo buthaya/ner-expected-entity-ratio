@@ -2,7 +2,7 @@
 #SBATCH --job-name=eer_ee_baselines
 #SBATCH --output=out_eer_ee_baselines.txt
 #SBATCH --error=err_eer_ee_baselines.txt
-#SBATCH --gres=gpu:2
+#SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=10 
 #SBATCH --time=10:00:00
 #SBATCH -C v100-32g
