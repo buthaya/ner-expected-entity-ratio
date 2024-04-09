@@ -65,7 +65,7 @@ bash scripts/run_remote_ml_experiment.sh\
 #  DEV_DATA=entity.dev-docs.jsonl\
 #  TEST_DATA=entity.test-docs.jsonl\
 #  VOCAB_PATH=data/conll2003/mbert-entity.vocab\
-#  MODEL_NAME=bert-base-multilingual-cased\
+#  MODEL_NAME=/gpfsdswork/dataset/HuggingFace_Models/bert-base-multilingual-cased\
 #  PAD_TOKEN="[PAD]"\
 #  OOV_TOKEN="[UNK]"\
 #  BATCH_SIZE=14\
@@ -98,7 +98,7 @@ bash scripts/run_remote_ml_experiment.sh\
 #  DEV_DATA=entity.dev-docs.jsonl\
 #  TEST_DATA=entity.test-docs.jsonl\
 #  VOCAB_PATH=data/conll2003/mbert-entity.vocab\
-#  MODEL_NAME=bert-base-multilingual-cased\
+#  MODEL_NAME=/gpfsdswork/dataset/HuggingFace_Models/bert-base-multilingual-cased\
 #  PAD_TOKEN="[PAD]"\
 #  OOV_TOKEN="[UNK]"\
 #  BATCH_SIZE=14\
@@ -130,7 +130,7 @@ bash scripts/run_remote_ml_experiment.sh\
 #  DEV_DATA=entity.dev-docs.jsonl\
 #  TEST_DATA=entity.test-docs.jsonl\
 #  VOCAB_PATH=data/conll2003/mbert-entity.vocab\
-#  MODEL_NAME=bert-base-multilingual-cased\
+#  MODEL_NAME=/gpfsdswork/dataset/HuggingFace_Models/bert-base-multilingual-cased\
 #  PAD_TOKEN="[PAD]"\
 #  OOV_TOKEN="[UNK]"\
 #  BATCH_SIZE=14\
@@ -194,7 +194,7 @@ bash scripts/run_remote_ml_experiment.sh\
 #  DEV_DATA=dev.jsonl\
 #  TEST_DATA=test.jsonl\
 #  VOCAB_PATH=data/ontonotes5/processed_docs/mbert-entity.vocab\
-#  MODEL_NAME=bert-base-multilingual-cased\
+#  MODEL_NAME=/gpfsdswork/dataset/HuggingFace_Models/bert-base-multilingual-cased\
 #  PAD_TOKEN="[PAD]"\
 #  OOV_TOKEN="[UNK]"\
 #  BATCH_SIZE=2\
@@ -226,7 +226,7 @@ bash scripts/run_remote_ml_experiment.sh\
 #  DEV_DATA=dev.jsonl\
 #  TEST_DATA=test.jsonl\
 #  VOCAB_PATH=data/ontonotes5/processed_docs/mbert-entity.vocab\
-#  MODEL_NAME=bert-base-multilingual-cased\
+#  MODEL_NAME=/gpfsdswork/dataset/HuggingFace_Models/bert-base-multilingual-cased\
 #  PAD_TOKEN="[PAD]"\
 #  OOV_TOKEN="[UNK]"\
 #  BATCH_SIZE=2\

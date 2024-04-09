@@ -25,7 +25,7 @@ do
         export OOV_TOKEN="<unk>"
     else
         export VOCAB_PATH=data/conll2003/mbert-entity.vocab
-        export MODEL_NAME=bert-base-multilingual-cased
+        export MODEL_NAME=/gpfsdswork/dataset/HuggingFace_Models/bert-base-multilingual-cased
         export PAD_TOKEN="[PAD]"
         export OOV_TOKEN="[UNK]"
     fi
@@ -59,7 +59,7 @@ do
         export OOV_TOKEN="<unk>"
     else
         export VOCAB_PATH=data/ontonotes5/processed/mbert-entity.vocab
-        export MODEL_NAME=bert-base-multilingual-cased
+        export MODEL_NAME=/gpfsdswork/dataset/HuggingFace_Models/bert-base-multilingual-cased
         export PAD_TOKEN="[PAD]"
         export OOV_TOKEN="[UNK]"
     fi
