@@ -40,6 +40,7 @@ ENTITY_RATIO_MARGIN=0.05
 # Conll english
 # tacl-eer_eng-c_nns_eer
 bash scripts/run_ml_experiment.sh\
+ IS_REMOTE=$IS_REMOTE\
  RUN_JUPYTER=$RUN_JUPYTER\
  RUN_TENSORBOARD=$RUN_TENSORBOARD\
  LANG_LABEL=eng-c\
@@ -70,6 +71,7 @@ bash scripts/run_ml_experiment.sh\
 # Conll german
 # tacl-eer_deu_nns_eer
 bash scripts/run_ml_experiment.sh\
+ IS_REMOTE=$IS_REMOTE\
  RUN_JUPYTER=$RUN_JUPYTER\
  RUN_TENSORBOARD=$RUN_TENSORBOARD\
  LANG_LABEL=deu\
@@ -100,6 +102,7 @@ bash scripts/run_ml_experiment.sh\
 # Conll spanish
 # tacl-eer_esp_nns_eer
 bash scripts/run_ml_experiment.sh\
+ IS_REMOTE=$IS_REMOTE\
  RUN_JUPYTER=$RUN_JUPYTER\
  RUN_TENSORBOARD=$RUN_TENSORBOARD\
  LANG_LABEL=esp\
@@ -129,6 +132,7 @@ bash scripts/run_ml_experiment.sh\
 # Conll dutch
 # tacl-eer_ned_nns_eer
 bash scripts/run_ml_experiment.sh\
+ IS_REMOTE=$IS_REMOTE\
  RUN_JUPYTER=$RUN_JUPYTER\
  RUN_TENSORBOARD=$RUN_TENSORBOARD\
  LANG_LABEL=ned\
@@ -158,6 +162,7 @@ bash scripts/run_ml_experiment.sh\
 # Ontonotes english
 # tacl-eer_eng-o_nns_eer
 bash scripts/run_ml_experiment.sh\
+ IS_REMOTE=$IS_REMOTE\
  RUN_JUPYTER=$RUN_JUPYTER\
  RUN_TENSORBOARD=$RUN_TENSORBOARD\
  LANG_LABEL=eng-o\
@@ -188,6 +193,7 @@ bash scripts/run_ml_experiment.sh\
 # Ontonotes chinese - intially had 30 epochs
 # tacl-eer_chi_nns_eer
 bash scripts/run_ml_experiment.sh\
+ IS_REMOTE=$IS_REMOTE\
  RUN_JUPYTER=$RUN_JUPYTER\
  RUN_TENSORBOARD=$RUN_TENSORBOARD\
  LANG_LABEL=chi\
@@ -217,6 +223,7 @@ bash scripts/run_ml_experiment.sh\
 # Ontonotes arabic initially had 30 epochs
 # tacl-eer_ara_nns_eer
 bash scripts/run_ml_experiment.sh\
+ IS_REMOTE=$IS_REMOTE\
  RUN_JUPYTER=$RUN_JUPYTER\
  RUN_TENSORBOARD=$RUN_TENSORBOARD\
  LANG_LABEL=ara\
