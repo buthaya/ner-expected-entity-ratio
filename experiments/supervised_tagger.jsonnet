@@ -76,7 +76,6 @@ local entity_ratio_margin = std.parseJson(std.extVar('ENTITY_RATIO_MARGIN'));
       }
     },
     dropout: dropout,
-    prior_loss_type: null,
     prior_loss_weight: prior_weight,
     entity_ratio: entity_ratio,
     entity_ratio_margin: entity_ratio_margin,
