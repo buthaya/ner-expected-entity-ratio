@@ -105,6 +105,8 @@ export ENTITY_RATIO_MARGIN=$ENTITY_RATIO_MARGIN
 module load python
 cd $SCRATCH/ner-expected-entity-ratio/
 conda activate ner-eer/
+which python 
+which pip
 pwd
 
 # Download all needed data from main node
