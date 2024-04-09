@@ -52,7 +52,7 @@ dependencies:
   - cytoolz=0.10.1=py37h7b6447c_0
   - dask=2.11.0=py_0
   - dask-core=2.11.0=py_0
-  - dataclasses=0.7=pyhb2cacf7_7
+  # - dataclasses=0.7=pyhb2cacf7_7
   - dbus=1.13.12=h746ee38_0
   - decorator=4.4.1=py_0
   - defusedxml=0.6.0=py_0
