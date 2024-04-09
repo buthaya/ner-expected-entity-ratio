@@ -413,9 +413,9 @@ dependencies:
     - tensorboardx==2.1
     - tokenizers==0.9.3
     - toml==0.10.1
-    - torch==1.7.0+cu110
+    - https://download.pytorch.org/whl/cu110/torch-1.7.0%2Bcu110-cp37-cp37m-linux_x86_64.whl#sha256=2ea0276625095cd2b8c96c81df2be4a737a09d3720cefb74d710d7bf4677aaf8
     - torch-struct==0.5
-    - torchvision==0.8.1+cu110
+    - https://download.pytorch.org/whl/cpu/torchvision-0.8.1%2Bcpu-cp37-cp37m-linux_x86_64.whl#sha256=cd70d1f1da3b18f4a7d91830aa5e9cb54fdf7948cb41d2faff09a43c385cf37a
     - transformers==3.5.1
     - typed-ast==1.4.1
     - typing==3.7.4.3
