@@ -174,7 +174,7 @@ bash scripts/run_ml_experiment.sh\
  BASE_CONFIG=experiments/supervised_tagger.jsonnet\
  ASSUME_COMPLETE=$ASSUME_COMPLETE\
  LANG_DIR=data/ontonotes5/processed_docs/english\
- TRAIN_DATA=train$TRAIN_SUFFIX.jsonl\
+ TRAIN_DATA=train.jsonl\
  DEV_DATA=dev.jsonl\
  TEST_DATA=test.jsonl\
  VOCAB_PATH=data/ontonotes5/processed_docs/roberta-entity.vocab\
@@ -205,7 +205,7 @@ bash scripts/run_ml_experiment.sh\
  BASE_CONFIG=experiments/supervised_tagger.jsonnet\
  ASSUME_COMPLETE=$ASSUME_COMPLETE\
  LANG_DIR=data/ontonotes5/processed_docs/chinese\
- TRAIN_DATA=train$TRAIN_SUFFIX.jsonl\
+ TRAIN_DATA=train.jsonl\
  DEV_DATA=dev.jsonl\
  TEST_DATA=test.jsonl\
  VOCAB_PATH=data/ontonotes5/processed_docs/mbert-entity.vocab\
@@ -236,7 +236,7 @@ bash scripts/run_ml_experiment.sh\
  BASE_CONFIG=experiments/supervised_tagger.jsonnet\
  ASSUME_COMPLETE=$ASSUME_COMPLETE\
  LANG_DIR=data/ontonotes5/processed_docs/arabic\
- TRAIN_DATA=train$TRAIN_SUFFIX.jsonl\
+ TRAIN_DATA=train.jsonl\
  DEV_DATA=dev.jsonl\
  TEST_DATA=test.jsonl\
  VOCAB_PATH=data/ontonotes5/processed_docs/mbert-entity.vocab\
