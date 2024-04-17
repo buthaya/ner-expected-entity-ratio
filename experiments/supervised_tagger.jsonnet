@@ -82,7 +82,6 @@ local entity_ratio_margin = std.parseJson(std.extVar('ENTITY_RATIO_MARGIN'));
   },
   trainer: {
     num_epochs: num_epochs,
-    patience: 100,
     cuda_device: 0,
     grad_clipping: 5.0,
     checkpointer: {
