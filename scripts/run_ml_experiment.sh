@@ -138,7 +138,7 @@ ner-eer/bin/allennlp train $BASE_CONFIG\
   -s $SERIALIZATION_DIR\
   --include ml\
   --file-friendly-logging\
-  --recover\
+  --force\
   &> logs/train_${LANG_LABEL}_${DATASET_LABEL}_${METHOD_LABEL}.out
 tail logs/train_${LANG_LABEL}_${DATASET_LABEL}_${METHOD_LABEL}.out -n 50
 echo Experiment finished. 
