@@ -131,9 +131,11 @@ fi
 # Run the experiment
 # --recover to try and resume training from last saved state.
 # https://github.com/allenai/allennlp/blob/80fb6061e568cb9d6ab5d45b661e86eb61b92c82/allennlp/commands/train.py#L211
+# -f (= --force) to delete serialization dir if it exists.
+# --recover and --force are not compatible (you must chose one)
 echo Running Experiment, check at logs/train_${LANG_LABEL}_${DATASET_LABEL}_${METHOD_LABEL}.out
 ner-eer/bin/allennlp train $BASE_CONFIG\
-  -f -s $SERIALIZATION_DIR\
+  -s $SERIALIZATION_DIR\
   --include ml\
   --file-friendly-logging\
   --recover\
