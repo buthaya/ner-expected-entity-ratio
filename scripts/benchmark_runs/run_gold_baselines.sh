@@ -150,35 +150,35 @@ bash scripts/run_remote_ml_experiment.sh\
 ##  PRIOR_TYPE=$PRIOR_TYPE
 
 
-# # Ontonotes english
-# # tacl-eer_eng-o_gold_mle
-# bash scripts/run_remote_ml_experiment.sh\
-#  IS_REMOTE=$IS_REMOTE\
-#  RUN_JUPYTER=$RUN_JUPYTER\
-#  RUN_TENSORBOARD=$RUN_TENSORBOARD\
-#  LANG_LABEL=eng-o\
-#  DATASET_LABEL=$DATASET_LABEL\
-#  METHOD_LABEL=$METHOD_LABEL\
-#  BASE_CONFIG=experiments/supervised_tagger.jsonnet\
-#  ASSUME_COMPLETE=$ASSUME_COMPLETE\
-#  LANG_DIR=data/ontonotes5/processed_docs/english\
-#  TRAIN_DATA=train.jsonl\
-#  DEV_DATA=dev.jsonl\
-#  TEST_DATA=test.jsonl\
-#  VOCAB_PATH=data/ontonotes5/processed_docs/roberta-entity.vocab\
-#  MODEL_NAME=/gpfsdswork/dataset/HuggingFace_Models/roberta-base\
-#  PAD_TOKEN="<pad>"\
-#  OOV_TOKEN="<unk>"\
-#  BATCH_SIZE=2\
-#  VALIDATION_BATCH_SIZE=1\
-#  RANDOM_SEED=$RANDOM_SEED\
-#  DROPOUT=$DROPOUT\
-#  LR=$LR\
-#  NUM_EPOCHS=$NUM_EPOCHS\
-#  PRIOR_WEIGHT=$PRIOR_WEIGHT\
-#  ENTITY_RATIO=$ENTITY_RATIO\
-#  ENTITY_RATIO_MARGIN=$ENTITY_RATIO_MARGIN\
-##  PRIOR_TYPE=$PRIOR_TYPE
+# Ontonotes english
+# tacl-eer_eng-o_gold_mle
+bash scripts/run_remote_ml_experiment.sh\
+ IS_REMOTE=$IS_REMOTE\
+ RUN_JUPYTER=$RUN_JUPYTER\
+ RUN_TENSORBOARD=$RUN_TENSORBOARD\
+ LANG_LABEL=eng-o\
+ DATASET_LABEL=$DATASET_LABEL\
+ METHOD_LABEL=$METHOD_LABEL\
+ BASE_CONFIG=experiments/supervised_tagger.jsonnet\
+ ASSUME_COMPLETE=$ASSUME_COMPLETE\
+ LANG_DIR=data/ontonotes5/processed_docs/english\
+ TRAIN_DATA=train.jsonl\
+ DEV_DATA=dev.jsonl\
+ TEST_DATA=test.jsonl\
+ VOCAB_PATH=data/ontonotes5/processed_docs/roberta-entity.vocab\
+ MODEL_NAME=/gpfsdswork/dataset/HuggingFace_Models/roberta-base\
+ PAD_TOKEN="<pad>"\
+ OOV_TOKEN="<unk>"\
+ BATCH_SIZE=2\
+ VALIDATION_BATCH_SIZE=1\
+ RANDOM_SEED=$RANDOM_SEED\
+ DROPOUT=$DROPOUT\
+ LR=$LR\
+ NUM_EPOCHS=$NUM_EPOCHS\
+ PRIOR_WEIGHT=$PRIOR_WEIGHT\
+ ENTITY_RATIO=$ENTITY_RATIO\
+ ENTITY_RATIO_MARGIN=$ENTITY_RATIO_MARGIN\
+#  PRIOR_TYPE=$PRIOR_TYPE
 
 
 # # Ontonotes chinese
