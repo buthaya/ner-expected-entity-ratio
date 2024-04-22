@@ -24,35 +24,35 @@ ENTITY_RATIO=0.15
 ENTITY_RATIO_MARGIN=0.05
 IS_REMOTE=false
 
-# Conll english
-# tacl-eer_eng-c_gold_mle
-bash scripts/run_ml_experiment.sh\
- IS_REMOTE=$IS_REMOTE\
- RUN_JUPYTER=$RUN_JUPYTER\
- RUN_TENSORBOARD=$RUN_TENSORBOARD\
- LANG_LABEL=eng-c\
- DATASET_LABEL=$DATASET_LABEL\
- METHOD_LABEL=$METHOD_LABEL\
- BASE_CONFIG=experiments/supervised_tagger.jsonnet\
- ASSUME_COMPLETE=$ASSUME_COMPLETE\
- LANG_DIR=data/conll2003/eng\
- TRAIN_DATA=entity.train-docs.jsonl\
- DEV_DATA=entity.dev-docs.jsonl\
- TEST_DATA=entity.test-docs.jsonl\
- VOCAB_PATH=data/conll2003/roberta-entity.vocab\
- MODEL_NAME=/gpfsdswork/dataset/HuggingFace_Models/roberta-base\
- PAD_TOKEN="<pad>"\
- OOV_TOKEN="<unk>"\
- BATCH_SIZE=15\
- VALIDATION_BATCH_SIZE=15\
- RANDOM_SEED=$RANDOM_SEED\
- DROPOUT=$DROPOUT\
- LR=$LR\
- NUM_EPOCHS=$NUM_EPOCHS\
- PRIOR_WEIGHT=$PRIOR_WEIGHT\
- ENTITY_RATIO=$ENTITY_RATIO\
- ENTITY_RATIO_MARGIN=$ENTITY_RATIO_MARGIN
-#  PRIOR_TYPE=$PRIOR_TYPE
+# # Conll english
+# # tacl-eer_eng-c_gold_mle
+# bash scripts/run_ml_experiment.sh\
+#  IS_REMOTE=$IS_REMOTE\
+#  RUN_JUPYTER=$RUN_JUPYTER\
+#  RUN_TENSORBOARD=$RUN_TENSORBOARD\
+#  LANG_LABEL=eng-c\
+#  DATASET_LABEL=$DATASET_LABEL\
+#  METHOD_LABEL=$METHOD_LABEL\
+#  BASE_CONFIG=experiments/supervised_tagger.jsonnet\
+#  ASSUME_COMPLETE=$ASSUME_COMPLETE\
+#  LANG_DIR=data/conll2003/eng\
+#  TRAIN_DATA=entity.train-docs.jsonl\
+#  DEV_DATA=entity.dev-docs.jsonl\
+#  TEST_DATA=entity.test-docs.jsonl\
+#  VOCAB_PATH=data/conll2003/roberta-entity.vocab\
+#  MODEL_NAME=/gpfsdswork/dataset/HuggingFace_Models/roberta-base\
+#  PAD_TOKEN="<pad>"\
+#  OOV_TOKEN="<unk>"\
+#  BATCH_SIZE=15\
+#  VALIDATION_BATCH_SIZE=15\
+#  RANDOM_SEED=$RANDOM_SEED\
+#  DROPOUT=$DROPOUT\
+#  LR=$LR\
+#  NUM_EPOCHS=$NUM_EPOCHS\
+#  PRIOR_WEIGHT=$PRIOR_WEIGHT\
+#  ENTITY_RATIO=$ENTITY_RATIO\
+#  ENTITY_RATIO_MARGIN=$ENTITY_RATIO_MARGIN
+# #  PRIOR_TYPE=$PRIOR_TYPE
  
 
 
@@ -165,7 +165,7 @@ bash scripts/run_ml_experiment.sh\
  TRAIN_DATA=train.jsonl\
  DEV_DATA=dev.jsonl\
  TEST_DATA=test.jsonl\
- VOCAB_PATH=data/ontonotes5/roberta-entity.vocab\
+ VOCAB_PATH=data/ontonotes5/processed/roberta-entity.vocab\
  MODEL_NAME=/gpfsdswork/dataset/HuggingFace_Models/roberta-base\
  PAD_TOKEN="<pad>"\
  OOV_TOKEN="<unk>"\
