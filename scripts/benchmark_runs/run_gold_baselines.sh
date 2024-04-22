@@ -9,8 +9,8 @@
 #SBATCH -A zke@v100
 
 # Benchmark Experiment: Gold mle baseline on all datasets
-RUN_JUPYTER=true
-RUN_TENSORBOARD=true
+RUN_JUPYTER=false
+RUN_TENSORBOARD=false
 DATASET_LABEL=gold
 METHOD_LABEL=mle
 ASSUME_COMPLETE="true"
