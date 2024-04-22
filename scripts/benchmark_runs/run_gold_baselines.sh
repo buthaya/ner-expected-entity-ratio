@@ -24,7 +24,6 @@ ENTITY_RATIO=0.15
 ENTITY_RATIO_MARGIN=0.05
 IS_REMOTE=false
 
-echo $ENTITY_RATIO_MARGIN
 # Conll english
 # tacl-eer_eng-c_gold_mle
 bash scripts/run_ml_experiment.sh\
