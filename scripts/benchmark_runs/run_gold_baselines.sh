@@ -26,7 +26,7 @@ IS_REMOTE=false
 
 # Conll english
 # tacl-eer_eng-c_gold_mle
-bash scripts/run_remote_ml_experiment.sh\
+bash scripts/run_ml_experiment.sh\
  IS_REMOTE=$IS_REMOTE\
  RUN_JUPYTER=$RUN_JUPYTER\
  RUN_TENSORBOARD=$RUN_TENSORBOARD\
@@ -152,7 +152,7 @@ bash scripts/run_remote_ml_experiment.sh\
 
 # Ontonotes english
 # tacl-eer_eng-o_gold_mle
-bash scripts/run_remote_ml_experiment.sh\
+bash scripts/run_ml_experiment.sh\
  IS_REMOTE=$IS_REMOTE\
  RUN_JUPYTER=$RUN_JUPYTER\
  RUN_TENSORBOARD=$RUN_TENSORBOARD\
