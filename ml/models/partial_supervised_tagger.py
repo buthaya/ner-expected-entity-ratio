@@ -254,7 +254,7 @@ class PartialSupervisedTagger(Model):
     def crf(self, encodings: torch.FloatTensor, mask: torch.FloatTensor, **kwargs) -> Dict[str, Any]:
         output = {}
 
-        tag_scores = self.score_tags(encodings)  # shape: Batch size, Num tokens, Tags
+        tag_scores = self.score_tags(encodings)  # shape: B*N*C (Batch size, Num tokens, Classes/Tags)
         B, N, C = tag_scores.shape
 
         if self.O_cost is not None:
@@ -266,18 +266,18 @@ class PartialSupervisedTagger(Model):
         output["local_potentials"] = tag_scores
 
         # Convert to batch size, i, c_{i+1}, c_i for torch_struct
-        log_phis = self._expand_potentials(tag_scores, add_transitions=self.use_transitions)
+        log_phis = self._expand_potentials(tag_scores, add_transitions=self.use_transitions) # shape: (B*N*C)*C
 
         # Maybe constrain the potentials with grammar matrix by adding -INF to all disallowed transitions
         if self.constrain_test_crf_decoding and not self.training:
             log_phis = self._constrain_transitions(log_phis)
 
-        lengths = mask.long().sum(-1) + 1  # torch_struct expects n+1 as the size
-        # print(f"lens: {lengths}")
+        # Get length of sequences without padding
+        lengths = mask.long().sum(-1) + 1  # shape: B # torch_struct expects N+1 as the size
+
         output["pred_crf"] = crf = LinearChainCRF(log_phis, lengths)
-        output["pred_tags"] = LinearChainCRF.struct.from_parts(crf.argmax[:, :-1])[
-            0
-        ]  # need to chop of last dummy node
+        output["pred_tags"] = LinearChainCRF.struct.from_parts(crf.argmax[:, :-1])[0] # shape: B*N
+                                                                                      # need to chop of last dummy node
 
         return output
 
@@ -291,6 +291,7 @@ class PartialSupervisedTagger(Model):
     ) -> Dict[str, Any]:
         output = {}
 
+        #
         constrained_pred_potentials = self._expand_potentials(
             self._constrain_potentials(tags, local_potentials),
             add_transitions=self.use_transitions,
