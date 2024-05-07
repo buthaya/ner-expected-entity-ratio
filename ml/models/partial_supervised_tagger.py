@@ -290,8 +290,11 @@ class PartialSupervisedTagger(Model):
         **kwargs,
     ) -> Dict[str, Any]:
         output = {}
+        # Tags shape : B*N
+        # local_potentials shape: B*N*C
 
-        #
+        # Create a new LinearChainCRF object with allowed potential only for the observed tags.
+        # Required for partial labeling loss computation.
         constrained_pred_potentials = self._expand_potentials(
             self._constrain_potentials(tags, local_potentials),
             add_transitions=self.use_transitions,
@@ -343,6 +346,10 @@ class PartialSupervisedTagger(Model):
         This is equal to the ratio of the observed/constrained to unobserved partition functions:
           p(y_O) = sum_{y : y_O subset y} exp{phi(y)}  / sum_{y'} exp{phi(y')}
         => -logp(y_O) = logZ(y') - logZ(y_O)
+        With our notations :
+        => -\tilde{l}(w, y) = - log sum_{y \in Z} p(y|x)
+                            = - logsumexp_{y \in Z} <w, y> + logsumexp_{y' \in Y} <w, y'>
+                            = - partial_log_partition + log_partition
         """
         loss = (pred_crf.partition - constrained_pred_crf.partition).mean()
         self.metrics["loss/marginal_nll"](loss)
@@ -386,7 +393,6 @@ class PartialSupervisedTagger(Model):
            [ 0.0, -inf],
            [ -inf, 0.0],
            [ 0.0, 0.0 ]]
-
         If we add this to the potentials for a crf, the resulting CRF will be effectively constrained to "1","2" at 1,2
         but leaving the end positions unconstrained.
         """
