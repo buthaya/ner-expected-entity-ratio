@@ -367,12 +367,12 @@ class PartialSupervisedTagger(Model):
     ) -> torch.FloatTensor:
         """ Convert per-tag potentials to linear-chain """
         B, N, C = local_potentials.shape
-        potentials = local_potentials.unsqueeze(2).repeat(1, 1, C, 1)
+        potentials = local_potentials.unsqueeze(2).repeat(1, 1, C, 1) # shape: B*N*C*C
 
         if add_transitions:
-            transitions = self.transition_params.t()  # flip to c_{i+1}, c_i
-            transitions = transitions.reshape(1, 1, C, C).repeat(B, N, 1, 1)
-            potentials = potentials + transitions
+            transitions = self.transition_params.t()  # flip to c_{i+1}, c_i # shape: C*C
+            transitions = transitions.reshape(1, 1, C, C).repeat(B, N, 1, 1) # shape: B*N*C*C
+            potentials = potentials + transitions   # shape: B*N*C*C
         return potentials
 
     def _constrain_potentials(self, tags: torch.LongTensor, local_potentials: torch.FloatTensor) -> torch.FloatTensor:
