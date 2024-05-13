@@ -301,11 +301,11 @@ class PartialSupervisedTagger(Model):
 
         # ---------------------- Debugging ----------------------
         print("labels, ", self.vocab.get_index_to_token_vocabulary(self.label_namespace))
-        print("tags, ", tags)
+        print("tags[0,0], ", tags[0,0])
         print("tags.shape, ", tags.shape)
-        print("self._constrain_potentials(tags, local_potentials), ", self._constrain_potentials(tags, local_potentials))
+        print("self._constrain_potentials(tags, local_potentials)[0,0], ", self._constrain_potentials(tags, local_potentials)[0,0])
         print("self._constrain_potentials(tags, local_potentials).shape, ", self._constrain_potentials(tags, local_potentials).shape)
-        print("constrained_pred_potentials, ", constrained_pred_potentials)
+        print("constrained_pred_potentials[0,0], ", constrained_pred_potentials[0,0])
         print("constrained_pred_potentials.shape, ", constrained_pred_potentials.shape)
         print("local_potentials, ", local_potentials)
         print("local_potentials.shape, ", local_potentials.shape)
