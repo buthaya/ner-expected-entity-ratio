@@ -278,7 +278,6 @@ class PartialSupervisedTagger(Model):
         output["pred_crf"] = crf = LinearChainCRF(log_phis, lengths)
         output["pred_tags"] = LinearChainCRF.struct.from_parts(crf.argmax[:, :-1])[0] # shape: B*N
                                                                                       # need to chop of last dummy node
-
         return output
 
     def loss(
@@ -300,6 +299,16 @@ class PartialSupervisedTagger(Model):
             add_transitions=self.use_transitions,
         )
 
+        # ---------------------- Debugging ----------------------
+        print("tags, ", tags)
+        print("tags.shape, ", tags.shape)
+        print("self._constrain_potentials(tags, local_potentials), ", self._constrain_potentials(tags, local_potentials))
+        print("self._constrain_potentials(tags, local_potentials).shape, ", self._constrain_potentials(tags, local_potentials).shape)
+        print("constrained_pred_potentials, ", constrained_pred_potentials)
+        print("constrained_pred_potentials.shape, ", constrained_pred_potentials.shape)
+        print("local_potentials, ", local_potentials)
+        print("local_potentials.shape, ", local_potentials.shape)
+        # -------------------------------------------------------
         constrained_pred_crf = LinearChainCRF(constrained_pred_potentials, lengths=pred_crf.lengths)
         output["constrained_pred_crf"] = constrained_pred_crf
 
@@ -397,6 +406,7 @@ class PartialSupervisedTagger(Model):
         but leaving the end positions unconstrained.
         """
         mask = torch.zeros_like(local_potentials)
+
         for i in range(mask.shape[0]):
             for j in range(mask.shape[1]):
                 tag = tags[i, j]
