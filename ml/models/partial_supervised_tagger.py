@@ -300,6 +300,7 @@ class PartialSupervisedTagger(Model):
         )
 
         # ---------------------- Debugging ----------------------
+        print("labels, ", self.vocab.get_index_to_token_vocabulary(self.label_namespace))
         print("tags, ", tags)
         print("tags.shape, ", tags.shape)
         print("self._constrain_potentials(tags, local_potentials), ", self._constrain_potentials(tags, local_potentials))
