@@ -311,7 +311,7 @@ class PartialSupervisedTagger(Model):
         output["loss"] = loss
         # ---------------------- Debugging ----------------------
         print("labels, ", self.vocab.get_index_to_token_vocabulary(self.label_namespace))
-        print("tags[0,0], ", tags[0])
+        print("tags[0], ", tags[0])
         print("tags.shape, ", tags.shape)
         # print("self._constrain_potentials(tags, local_potentials)[0,0], ", self._constrain_potentials(tags, local_potentials)[0,0])
         # print("self._constrain_potentials(tags, local_potentials).shape, ", self._constrain_potentials(tags, local_potentials).shape)
@@ -320,8 +320,17 @@ class PartialSupervisedTagger(Model):
         # print("local_potentials, ", local_potentials)
         # print("local_potentials.shape, ", local_potentials.shape)
         print("pred_crf.lengths, ", pred_crf.lengths)
-        print(constrained_pred_crf.marginals[0,0])
-        print(constrained_pred_potentials.sum(dim=2)[0,0])
+
+        print("constrained_pred_crf.marginals, ", constrained_pred_crf.marginals)
+        print("constrained_pred_crf.marginals[0], ", constrained_pred_crf.marginals[0])
+        print("constrained_pred_crf.marginals[0,0], ", constrained_pred_crf.marginals[0,0])
+        print("constrained_pred_crf.marginals.shape, ", constrained_pred_crf.marginals.shape)
+
+        print("constrained_pred_potentials.sum(dim=2), ", constrained_pred_potentials.sum(dim=2))
+        print("constrained_pred_potentials.sum(dim=2)[0], ", constrained_pred_potentials.sum(dim=2)[0])
+        print("constrained_pred_potentials.sum(dim=2)[0,0], ", constrained_pred_potentials.sum(dim=2)[0,0])
+        print("constrained_pred_potentials.sum(dim=2).shape, ", constrained_pred_potentials.sum(dim=2).shape)
+
         # -------------------------------------------------------
 
         return output
