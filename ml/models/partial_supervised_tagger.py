@@ -301,7 +301,7 @@ class PartialSupervisedTagger(Model):
 
         # ---------------------- Debugging ----------------------
         print("labels, ", self.vocab.get_index_to_token_vocabulary(self.label_namespace))
-        print("tags[0,0], ", tags[0,0])
+        print("tags[0,0], ", tags[0])
         print("tags.shape, ", tags.shape)
         print("self._constrain_potentials(tags, local_potentials)[0,0], ", self._constrain_potentials(tags, local_potentials)[0,0])
         print("self._constrain_potentials(tags, local_potentials).shape, ", self._constrain_potentials(tags, local_potentials).shape)
