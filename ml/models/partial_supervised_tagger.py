@@ -150,6 +150,8 @@ class PartialSupervisedTagger(Model):
             constraints = allowed_transitions(label_encoding, labels)[1:, 1:]  # chop off latent tag
         else:
             constraints = torch.ones(self.num_tags, self.num_tags)
+        print('constraints.shape: ', constraints.shape)
+        print('constraints: ', constraints)
         self.transition_constraints = nn.Parameter(constraints.float(), requires_grad=False)
         self.transition_params = nn.Parameter(0.001 * torch.randn_like(constraints))
 
