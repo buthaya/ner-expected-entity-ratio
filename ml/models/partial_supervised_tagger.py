@@ -185,8 +185,9 @@ class PartialSupervisedTagger(Model):
         metadata: List[Dict[str, Any]] = None,
         **kwargs,
     ) -> Dict[str, torch.Tensor]:
-        print('tokens[0]: ', tokens[0])
-        print('tokens[0].shape: ', tokens[0].shape)
+        print('tokens: ', tokens)
+        print('tokens.keys(): ', tokens.keys())
+        print('tokens["tokens"]: ', tokens["tokens"])
         output = {"metadata": metadata}
         output.update(self.encode(tokens, **output))
         output.update(self.crf(**output))
