@@ -185,9 +185,9 @@ class PartialSupervisedTagger(Model):
         metadata: List[Dict[str, Any]] = None,
         **kwargs,
     ) -> Dict[str, torch.Tensor]:
-        print('tokens: ', tokens)
         print('tokens.keys(): ', tokens.keys())
         print('tokens["tokens"]: ', tokens["tokens"])
+        print('tokens["tokens"]["token_ids"].shape: ', tokens["tokens"]["token_ids"].shape)
         output = {"metadata": metadata}
         output.update(self.encode(tokens, **output))
         output.update(self.crf(**output))
@@ -302,6 +302,9 @@ class PartialSupervisedTagger(Model):
             add_transitions=self.use_transitions,
         )
 
+        # The LinearChainCRF takes in input:
+        # - log_potentials: B*N*C*C (N without CLS token)
+        # - lengths: B (length of each sequence without padding)
         constrained_pred_crf = LinearChainCRF(constrained_pred_potentials, lengths=pred_crf.lengths)
         output["constrained_pred_crf"] = constrained_pred_crf
 
