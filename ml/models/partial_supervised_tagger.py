@@ -283,7 +283,7 @@ class PartialSupervisedTagger(Model):
                                                                                       # need to chop of last dummy node
         # ---------------------- Debugging ----------------------
         print('tag_scores.shape: ', tag_scores.shape)
-        print('encodings.shape (=local_potentials): ', encodings.shape
+        print('encodings.shape (=local_potentials): ', encodings.shape)
         print('log_phis.shape: ', log_phis.shape)
         print('mask.shape: ', mask.shape)
 
