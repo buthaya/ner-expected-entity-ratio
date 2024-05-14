@@ -413,7 +413,8 @@ class PartialSupervisedTagger(Model):
         """ Convert per-tag potentials to linear-chain """
         B, N, C = local_potentials.shape
         potentials = local_potentials.unsqueeze(2).repeat(1, 1, C, 1) # shape: B*N*C*C
-
+        print('local_potentials.shape before: ', local_potentials.shape)
+        print('potentials.shape after unsqueeze : ', potentials.shape)
         if add_transitions:
             transitions = self.transition_params.t()  # flip to c_{i+1}, c_i # shape: C*C
             transitions = transitions.reshape(1, 1, C, C).repeat(B, N, 1, 1) # shape: B*N*C*C
