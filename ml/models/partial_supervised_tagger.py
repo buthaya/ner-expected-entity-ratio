@@ -150,8 +150,7 @@ class PartialSupervisedTagger(Model):
             constraints = allowed_transitions(label_encoding, labels)[1:, 1:]  # chop off latent tag
         else:
             constraints = torch.ones(self.num_tags, self.num_tags)
-        print('constraints.shape: ', constraints.shape)
-        print('constraints: ', constraints)
+
         self.transition_constraints = nn.Parameter(constraints.float(), requires_grad=False)
         self.transition_params = nn.Parameter(0.001 * torch.randn_like(constraints))
 
@@ -326,7 +325,9 @@ class PartialSupervisedTagger(Model):
 
         output["loss"] = loss
         # ---------------------- Debugging ----------------------
-        # print("labels, ", self.vocab.get_index_to_token_vocabulary(self.label_namespace))
+        print("labels, ", self.vocab.get_index_to_token_vocabulary(self.label_namespace))
+        print('constraints.shape: ', self.constraints.shape)
+        print('constraints: ', self.constraints)
         # print("tags[0], ", tags[0])
         # print("tags.shape, ", tags.shape)
         # print("self._constrain_potentials(tags, local_potentials)[0,0], ", self._constrain_potentials(tags, local_potentials)[0,0])
@@ -420,6 +421,7 @@ class PartialSupervisedTagger(Model):
             transitions = self.transition_params.t()  # flip to c_{i+1}, c_i # shape: C*C
             transitions = transitions.reshape(1, 1, C, C).repeat(B, N, 1, 1) # shape: B*N*C*C
             print('transitions[0][0]: ', transitions[0][0])
+            print('transitions[0][0]: ', transitions[0][-1])
             potentials = potentials + transitions   # shape: B*N*C*C # add transitions to the expanded potentials
             # At this point, the potentials are defined for the N tokens in the sequence
             # The transition matrix is also of shape N but we only have transitions between N-1 tokens
