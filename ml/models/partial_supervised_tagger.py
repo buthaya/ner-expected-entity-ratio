@@ -412,16 +412,15 @@ class PartialSupervisedTagger(Model):
     ) -> torch.FloatTensor:
         """ Convert per-tag potentials to linear-chain """
         B, N, C = local_potentials.shape
-        potentials = local_potentials.unsqueeze(2).repeat(1, 1, C, 1) # shape: B*N*C*C
-        print('local_potentials.shape before: ', local_potentials.shape)
-        print('local_potentials[0]', local_potentials[0])
-        print('potentials.shape after unsqueeze : ', potentials.shape)
-        print('potentials[0]', potentials[0])
-        print('potentials[0][:10]', potentials[0][:10])
+        potentials = local_potentials.unsqueeze(2).repeat(1, 1, C, 1) # simply expand to shape: B*N*C*C without touching
+                                                                      # the values
         if add_transitions:
             transitions = self.transition_params.t()  # flip to c_{i+1}, c_i # shape: C*C
             transitions = transitions.reshape(1, 1, C, C).repeat(B, N, 1, 1) # shape: B*N*C*C
-            potentials = potentials + transitions   # shape: B*N*C*C
+            print('transitions[0][0]: ', transitions[0][0])
+            potentials = potentials + transitions   # shape: B*N*C*C # add transitions to the expanded potentials
+            # At this point, the potentials are defined for the N tokens in the sequence
+            # The transition matrix is also of shape N but we only have transitions between N-1 tokens
             print('transitions.shape: ', transitions.shape)
             print('potentials.shape: ', potentials.shape)
         return potentials
