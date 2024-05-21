@@ -321,7 +321,7 @@ class PartialSupervisedTagger(Model):
         print('tag_weights.shape: ', self._constrain_potentials(tags, local_potentials).shape)
         print('tag_weights[0][0]: ', self._constrain_potentials(tags, local_potentials)[0][0])
         print('transition_params[0][0] / transition_weights shape: ', self.transition_params.shape)
-        print('transition_params[0][0] / transition_weights: ', self.transition_params[0][0])
+        print('transition_params / transition_weights: ', self.transition_params)
         print('potentials.shape: ', constrained_pred_potentials.shape)
         print('potentials[0][0]: ', constrained_pred_potentials[0][0])
         # -------------------------------------------------------
