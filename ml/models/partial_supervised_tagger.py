@@ -242,6 +242,7 @@ class PartialSupervisedTagger(Model):
         return metrics_to_return
 
     def encode(self, tokens: Dict[str, Dict[str, torch.LongTensor]], **kwargs) -> Dict[str, Any]:
+        print('tokens.shape: ', tokens.shape)
         output = {}
         mask = util.get_text_field_mask(tokens, padding_id=self.pad_idx)
         output["mask"] = mask
@@ -253,6 +254,7 @@ class PartialSupervisedTagger(Model):
         if self.feedforward:
             reps = self.feedforward(reps)
         output["encodings"] = reps
+        print('reps.shape: ', reps.shape)
         return output
 
     def crf(self, encodings: torch.FloatTensor, mask: torch.FloatTensor, **kwargs) -> Dict[str, Any]:
