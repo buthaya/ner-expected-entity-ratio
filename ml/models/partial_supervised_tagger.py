@@ -319,11 +319,11 @@ class PartialSupervisedTagger(Model):
         # ---------------------- Debugging ----------------------
         print("labels, ", self.vocab.get_index_to_token_vocabulary(self.label_namespace))
         print('tag_weights.shape: ', self._constrain_potentials(tags, local_potentials).shape)
-        print('tag_weights: ', self._constrain_potentials(tags, local_potentials))
-        print('transition_params / transition_weights: ', self.transition_params.shape)
-        print('transition_params / transition_weights: ', self.transition_params)
-        print('potentials: ', constrained_pred_potentials.shape)
-        print('potentials: ', constrained_pred_potentials)
+        print('tag_weights[0][0]: ', self._constrain_potentials(tags, local_potentials)[0][0])
+        print('transition_params[0][0] / transition_weights shape: ', self.transition_params.shape)
+        print('transition_params[0][0] / transition_weights: ', self.transition_params[0][0])
+        print('potentials.shape: ', constrained_pred_potentials.shape)
+        print('potentials[0][0]: ', constrained_pred_potentials[0][0])
         # -------------------------------------------------------
 
         return output
