@@ -318,8 +318,11 @@ class PartialSupervisedTagger(Model):
         output["loss"] = loss
         # ---------------------- Debugging ----------------------
         print("labels, ", self.vocab.get_index_to_token_vocabulary(self.label_namespace))
+        print('tag_weights.shape: ', self._constrain_potentials(tags, local_potentials).shape)
         print('tag_weights: ', self._constrain_potentials(tags, local_potentials))
+        print('transition_params / transition_weights: ', self.transition_params.shape)
         print('transition_params / transition_weights: ', self.transition_params)
+        print('potentials: ', constrained_pred_potentials.shape)
         print('potentials: ', constrained_pred_potentials)
         # -------------------------------------------------------
 
