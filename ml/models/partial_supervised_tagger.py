@@ -242,7 +242,7 @@ class PartialSupervisedTagger(Model):
         return metrics_to_return
 
     def encode(self, tokens: Dict[str, Dict[str, torch.LongTensor]], **kwargs) -> Dict[str, Any]:
-        print('tokens.shape: ', tokens.shape)
+        print('tokens.shape: ', tokens)
         output = {}
         mask = util.get_text_field_mask(tokens, padding_id=self.pad_idx)
         output["mask"] = mask
