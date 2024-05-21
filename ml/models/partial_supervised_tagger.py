@@ -282,13 +282,6 @@ class PartialSupervisedTagger(Model):
         output["pred_crf"] = crf = LinearChainCRF(log_phis, lengths)
         output["pred_tags"] = LinearChainCRF.struct.from_parts(crf.argmax[:, :-1])[0] # shape: B*N
                                                                                       # need to chop of last dummy node
-        # ---------------------- Debugging ----------------------
-        print('tag_scores.shape: ', tag_scores.shape)
-        print('encodings.shape (=local_potentials): ', encodings.shape)
-        print('log_phis.shape: ', log_phis.shape)
-        print('mask.shape: ', mask.shape)
-
-        # -------------------------------------------------------
 
         return output
 
@@ -310,7 +303,6 @@ class PartialSupervisedTagger(Model):
             self._constrain_potentials(tags, local_potentials),
             add_transitions=self.use_transitions,
         )
-
         # The LinearChainCRF takes in input:
         # - log_potentials: B*N*C*C (N without CLS token)
         # - lengths: B (length of each sequence without padding)
@@ -328,27 +320,9 @@ class PartialSupervisedTagger(Model):
         print("labels, ", self.vocab.get_index_to_token_vocabulary(self.label_namespace))
         print('constraints.shape: ', self.constraints.shape)
         print('constraints: ', self.constraints)
-        # print("tags[0], ", tags[0])
-        # print("tags.shape, ", tags.shape)
-        # print("self._constrain_potentials(tags, local_potentials)[0,0], ", self._constrain_potentials(tags, local_potentials)[0,0])
-        # print("self._constrain_potentials(tags, local_potentials).shape, ", self._constrain_potentials(tags, local_potentials).shape)
-        # print("constrained_pred_potentials[0,0], ", constrained_pred_potentials[0,0])
-        # print("constrained_pred_potentials.shape, ", constrained_pred_potentials.shape)
-        # print("local_potentials, ", local_potentials)
-        # print("local_potentials.shape, ", local_potentials.shape)
-        # print("constrained_pred_potentials.shape, ", constrained_pred_potentials.shape)
-        # print("pred_crf.lengths, ", pred_crf.lengths)
-
-        # print("constrained_pred_crf.marginals, ", constrained_pred_crf.marginals)
-        # print("constrained_pred_crf.marginals[0], ", constrained_pred_crf.marginals[0])
-        # print("constrained_pred_crf.marginals[0,0], ", constrained_pred_crf.marginals[0,0])
-        # print("constrained_pred_crf.marginals.shape, ", constrained_pred_crf.marginals.shape)
-
-        # print("constrained_pred_potentials.sum(dim=2), ", constrained_pred_potentials.sum(dim=2))
-        # print("constrained_pred_potentials.sum(dim=2)[0], ", constrained_pred_potentials.sum(dim=2)[0])
-        # print("constrained_pred_potentials.sum(dim=2)[0,0], ", constrained_pred_potentials.sum(dim=2)[0,0])
-        # print("constrained_pred_potentials.sum(dim=2).shape, ", constrained_pred_potentials.sum(dim=2).shape)
-
+        print('tag_weights: ', self._constrain_potentials(tags, local_potentials))
+        print('transition_params / transition_weights: ', self.transition_params)
+        print('potentials: ', constrained_pred_potentials)
         # -------------------------------------------------------
 
         return output
@@ -365,7 +339,6 @@ class PartialSupervisedTagger(Model):
         tag_probs = pred_crf.argmax.sum(2)  # sum out z_{i+1} positions
         B, N, C = tag_probs.shape
         tag_probs = torch.cat([torch.zeros(B, N, 1).to(tags.device), tag_probs], dim=2)
-        # print(f"tag probs: {tag_probs.shape} ... {tag_probs[0]}")
         for metric in self.tag_metrics.values():
             metric(tag_probs, tags, mask)
 
@@ -420,13 +393,9 @@ class PartialSupervisedTagger(Model):
         if add_transitions:
             transitions = self.transition_params.t()  # flip to c_{i+1}, c_i # shape: C*C
             transitions = transitions.reshape(1, 1, C, C).repeat(B, N, 1, 1) # shape: B*N*C*C
-            print('transitions[0][0]: ', transitions[0][0])
-            print('transitions[0][0]: ', transitions[0][-1])
             potentials = potentials + transitions   # shape: B*N*C*C # add transitions to the expanded potentials
             # At this point, the potentials are defined for the N tokens in the sequence
             # The transition matrix is also of shape N but we only have transitions between N-1 tokens
-            print('transitions.shape: ', transitions.shape)
-            print('potentials.shape: ', potentials.shape)
         return potentials
 
     def _constrain_potentials(self, tags: torch.LongTensor, local_potentials: torch.FloatTensor) -> torch.FloatTensor:
