@@ -298,7 +298,11 @@ class PartialSupervisedTagger(Model):
         output = {}
         # Tags shape : B*N
         # local_potentials shape: B*N*C
+        print('tags.shape: ', tags.shape)
+        print('tags[0]: ', tags[0])
 
+        print('local_potentials.shape: ', local_potentials.shape)
+        print('local_potentials[0][0]: ', local_potentials[0][0])
         # Create a new LinearChainCRF object with allowed potential only for the observed tags.
         # Required for partial labeling loss computation.
         constrained_pred_potentials = self._expand_potentials(
